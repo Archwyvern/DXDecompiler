@@ -24,7 +24,8 @@ namespace DXDecompiler.Decompiler.DxbcParser
 				ParseEffect(shader, container);
 				return shader;
 			}
-			ResourceDefinitionParser.Parse(shader, container.ResourceDefinition);
+			if(container.ResourceDefinition != null)
+				ResourceDefinitionParser.Parse(shader, container.ResourceDefinition);
 			if(container.Interfaces != null)
 			{
 				shader.InterfaceManger = new IrInterfaceManger(container.Interfaces);
